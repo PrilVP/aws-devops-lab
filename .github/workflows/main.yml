@@ -32,14 +32,13 @@ jobs:
 
       - name: Build, tag and push image to ECR
         run: |
-    # Собираем образ из корня репозитория (здесь лежит Dockerfile)
-        docker build -t $ECR_REPOSITORY:latest .
+          # Собираем образ из корня репозитория (здесь лежит Dockerfile)
+          docker build -t $ECR_REPOSITORY:latest .
 
-        docker tag $ECR_REPOSITORY:latest \
-        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
+          docker tag $ECR_REPOSITORY:latest \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
 
-        docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
-
+          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Update kubeconfig for EKS
         run: |
@@ -52,4 +51,4 @@ jobs:
           kubectl -n demo set image deployment/demo-app \
             demo-app=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
 
-          kubectl -n demo rollout status deployment/demo-app -n demo
+          kubectl -n demo rollout status deployment/demo-app
