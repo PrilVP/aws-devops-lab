@@ -32,13 +32,14 @@ jobs:
 
       - name: Build, tag and push image to ECR
         run: |
-          # путь до Dockerfile — поправь, если у тебя он в поддиректории
-          docker build -t $ECR_REPOSITORY:latest .
+    # Собираем образ из корня репозитория (здесь лежит Dockerfile)
+        docker build -t $ECR_REPOSITORY:latest .
 
-          docker tag $ECR_REPOSITORY:latest \
-            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
+        docker tag $ECR_REPOSITORY:latest \
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
 
-          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
+        docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
+
 
       - name: Update kubeconfig for EKS
         run: |
