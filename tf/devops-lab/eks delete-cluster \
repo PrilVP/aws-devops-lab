@@ -1,0 +1,76 @@
+{
+    "cluster": {
+        "name": "devops-lab-eks",
+        "arn": "arn:aws:eks:eu-central-1:690914295799:cluster/devops-lab-eks",
+        "createdAt": "2025-11-27T18:20:48.370000+00:00",
+        "version": "1.30",
+        "endpoint": "https://84F30D2A1DAABC8B1A241E23F332EE89.gr7.eu-central-1.eks.amazonaws.com",
+        "roleArn": "arn:aws:iam::690914295799:role/devops-lab-eks-cluster-20251127181621478300000003",
+        "resourcesVpcConfig": {
+            "subnetIds": [
+                "subnet-06e91e856471a70d6",
+                "subnet-00f30d233462a8120"
+            ],
+            "securityGroupIds": [
+                "sg-0fcd9bd0b08306929"
+            ],
+            "vpcId": "vpc-0128092305d7fa260",
+            "endpointPublicAccess": true,
+            "endpointPrivateAccess": true,
+            "publicAccessCidrs": [
+                "0.0.0.0/0"
+            ]
+        },
+        "kubernetesNetworkConfig": {
+            "serviceIpv4Cidr": "172.20.0.0/16",
+            "ipFamily": "ipv4",
+            "elasticLoadBalancing": {
+                "enabled": false
+            }
+        },
+        "logging": {
+            "clusterLogging": [
+                {
+                    "types": [
+                        "api",
+                        "audit",
+                        "authenticator"
+                    ],
+                    "enabled": true
+                },
+                {
+                    "types": [
+                        "controllerManager",
+                        "scheduler"
+                    ],
+                    "enabled": false
+                }
+            ]
+        },
+        "status": "CREATING",
+        "certificateAuthority": {},
+        "platformVersion": "eks.54",
+        "tags": {
+            "Project": "devops-lab",
+            "Environment": "dev",
+            "terraform-aws-modules": "eks"
+        },
+        "encryptionConfig": [
+            {
+                "resources": [
+                    "secrets"
+                ],
+                "provider": {
+                    "keyArn": "arn:aws:kms:eu-central-1:690914295799:key/a7875cf9-d13f-44fe-b75b-15624c1dfc67"
+                }
+            }
+        ],
+        "accessConfig": {
+            "authenticationMode": "API_AND_CONFIG_MAP"
+        },
+        "upgradePolicy": {
+            "supportType": "EXTENDED"
+        },
+        "deletionProtection": false
+    }
+}

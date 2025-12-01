@@ -1,0 +1,86 @@
+# loki-values.yaml
+
+deploymentMode: SingleBinary
+
+loki:
+  auth_enabled: false
+
+  # чтобы чарт сам сгенерил schema_config
+  useTestSchema: true
+
+  # общие настройки ring + фактор репликации для ОДНОГО инстанса
+  commonConfig:
+    replication_factor: 1
+    ring:
+      kvstore:
+        store: inmemory
+
+  # сторедж через файловую систему (для учебного стенда)
+  storage:
+    type: filesystem
+    filesystem:
+      chunks_directory: /var/loki/chunks
+      rules_directory: /var/loki/rules
+    bucketNames:
+      chunks: loki-chunks
+      ruler: loki-ruler
+      admin: loki-admin
+      deletion: loki-deletion
+
+  server:
+    http_listen_port: 3100
+    grpc_listen_port: 9095
+
+singleBinary:
+  replicas: 1
+
+  # без PVC, чтобы не упираться в storageclass
+  persistence:
+    enabled: false
+
+  # даём writable том вместо /var/loki на read-only FS
+  extraVolumes:
+    - name: loki-storage
+      emptyDir: {}
+  extraVolumeMounts:
+    - name: loki-storage
+      mountPath: /var/loki
+
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 100m
+      memory: 256Mi
+
+# полностью гасим simple-scalable режим
+backend:
+  replicas: 0
+read:
+  replicas: 0
+write:
+  replicas: 0
+
+# все кэши вырублены, чтобы не плодить лишние StatefulSet'ы
+chunksCache:
+  enabled: false
+
+resultsCache:
+  enabled: false
+
+# gateway нам не обязателен, Grafana ходит прямо в сервис loki
+gateway:
+  enabled: false
+
+# для валидации чарта: canary включён, helm test – выключен
+lokiCanary:
+  enabled: true
+
+test:
+  enabled: false
+
+service:
+  type: ClusterIP
+  ports:
+    http: 3100

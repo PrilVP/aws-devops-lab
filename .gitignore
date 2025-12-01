@@ -1,0 +1,14 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*
+*.tfplan
+
+# Логи
+*.log
+
+# Всякий мусор IDE (можно дописать по вкусу)
+.idea/
+.vscode/
