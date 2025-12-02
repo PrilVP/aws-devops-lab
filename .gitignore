@@ -6,9 +6,17 @@ crash.log
 crash.*
 *.tfplan
 
+# Секреты Terraform
+terraform.tfvars
+*.tfvars
+
+# K8s секреты (если хранишь yaml с паролями)
+db-secret.yaml
+*secret*.yaml
+
 # Логи
 *.log
 
-# Всякий мусор IDE (можно дописать по вкусу)
+# IDE
 .idea/
 .vscode/
