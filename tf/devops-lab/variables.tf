@@ -33,3 +33,21 @@ variable "azs" {
   type        = list(string)
   default     = ["eu-central-1a", "eu-central-1b"]
 }
+
+variable "db_name" {
+  description = "PostgreSQL database name"
+  type        = string
+  default     = "appdb"
+}
+
+variable "db_username" {
+  description = "PostgreSQL master username"
+  type        = string
+  default     = "appuser"
+}
+
+variable "db_password" {
+  description = "PostgreSQL master password"
+  type        = string
+  sensitive   = true
+}
