@@ -78,15 +78,12 @@
    └── App becomes available at:
        https://app.<domain>```
 🔐 Secrets
-```
+
 Используются:
-
 AWS Secrets Manager
-
 IRSA (IAM Roles for Service Accounts)
-
 Secrets Store CSI Driver
-Git — не храним секреты
+```Git — не храним секреты
 Terraform — управляет ими
 Kubernetes — получает динамически```
 
@@ -103,17 +100,17 @@ HPA — масштабирует поды```
 Node.js + Express + pg
 Подключение к RDS через secret.
 Обновляется через Helm.
-```
-.
+
+```.
 ├── app/                     # Node.js приложение
 ├── demo-app/                # Helm chart
 ├── terraform/               # Инфраструктура
 ├── .github/workflows/       # GitHub Actions (CI/CD)
-└── README.md
-```
+└── README.md```
+
 🛠 Как запустить проект
-```
-# Инициализация Terraform
+
+```# Инициализация Terraform
 terraform init
 terraform apply
 
