@@ -119,14 +119,15 @@ Node.js + Express + pg
 ```
 # Инициализация Terraform
 terraform init
-terraform apply```
+terraform apply
 
 # Проверка кластера
-```kubectl get nodes
-kubectl get pods -A```
+kubectl get nodes
+kubectl get pods -A
 
 # Деплой приложения
-```helm upgrade --install demo-app ./demo-app```
+helm upgrade --install demo-app ./demo-app
+```
 
 🧹 Git Cleanliness
 ```
@@ -137,7 +138,8 @@ kubectl get pods -A```
   *.yaml с приватными конфигами
 
 Если утекло в историю:
-  git filter-repo --path ...```
+  git filter-repo --path ...
+```
 
 📄 Лицензия
 
