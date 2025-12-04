@@ -76,7 +76,8 @@
    │       └── Autoscaling configs
    │
    └── App becomes available at:
-       https://app.<domain>```
+       https://app.<domain>
+```
 🔐 Secrets
 
 Используются:
