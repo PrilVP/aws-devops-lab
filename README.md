@@ -87,8 +87,8 @@ Secrets Store CSI Driver
 ```
 Git — не храним секреты
 Terraform — управляет ими
-Kubernetes — получает динамически```
-
+Kubernetes — получает динамически
+```
 📊 Логи и Мониторинг
 ```
 Loki       — база логов
@@ -96,7 +96,8 @@ Promtail   — сбор логов с pod/нод
 Grafana    — дашборды и алерты
 metrics-server — CPU/RAM подов
 Cluster Autoscaler — масштабирует ноды
-HPA — масштабирует поды```
+HPA — масштабирует поды
+```
 
 🧩 Demo-app
 
@@ -116,15 +117,15 @@ Node.js + Express + pg
 
 ```
 # Инициализация Terraform
-terraform init
-terraform apply
+```terraform init
+terraform apply```
 
 # Проверка кластера
-kubectl get nodes
-kubectl get pods -A
+```kubectl get nodes
+kubectl get pods -A```
 
 # Деплой приложения
-helm upgrade --install demo-app ./demo-app```
+```helm upgrade --install demo-app ./demo-app```
 
 🧹 Git Cleanliness
 ```
