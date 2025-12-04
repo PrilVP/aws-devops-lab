@@ -84,12 +84,14 @@
 AWS Secrets Manager
 IRSA (IAM Roles for Service Accounts)
 Secrets Store CSI Driver
-```Git — не храним секреты
+```
+Git — не храним секреты
 Terraform — управляет ими
 Kubernetes — получает динамически```
 
 📊 Логи и Мониторинг
-```Loki       — база логов
+```
+Loki       — база логов
 Promtail   — сбор логов с pod/нод
 Grafana    — дашборды и алерты
 metrics-server — CPU/RAM подов
@@ -102,7 +104,8 @@ Node.js + Express + pg
 Подключение к RDS через secret.
 Обновляется через Helm.
 
-```.
+```
+.
 ├── app/                     # Node.js приложение
 ├── demo-app/                # Helm chart
 ├── terraform/               # Инфраструктура
@@ -111,7 +114,8 @@ Node.js + Express + pg
 
 🛠 Как запустить проект
 
-```# Инициализация Terraform
+```
+# Инициализация Terraform
 terraform init
 terraform apply
 
@@ -123,7 +127,8 @@ kubectl get pods -A
 helm upgrade --install demo-app ./demo-app```
 
 🧹 Git Cleanliness
-```.gitignore включает:
+```
+.gitignore включает:
   terraform.tfvars
   *.pem
   *secret*
