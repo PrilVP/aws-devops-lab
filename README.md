@@ -52,8 +52,9 @@
                                       │ HTTPS (443)
                                       ▼
                            https://app.<domain>
+```
 📦 Модули Terraform
-terraform/
+```terraform/
  ├── vpc/                    # Сеть, сабнеты, NAT
  ├── eks/                    # Кластер, node groups
  ├── rds/                    # PostgreSQL
@@ -61,9 +62,10 @@ terraform/
  ├── alb-controller/         # AWS Load Balancer Controller
  ├── monitoring/             # Loki, Promtail, Grafana
  └── outputs.tf              # Важные выводы
+```
 
 ⚙ CI/CD Pipeline
-Push to main
+```Push to main
    │
    ├── Build Docker Image
    ├── Push to ECR
@@ -74,9 +76,9 @@ Push to main
    │       └── Autoscaling configs
    │
    └── App becomes available at:
-       https://app.<domain>
+       https://app.<domain>```
 🔐 Secrets
-
+```
 Используются:
 
 AWS Secrets Manager
@@ -86,31 +88,31 @@ IRSA (IAM Roles for Service Accounts)
 Secrets Store CSI Driver
 Git — не храним секреты
 Terraform — управляет ими
-Kubernetes — получает динамически
+Kubernetes — получает динамически```
 
 📊 Логи и Мониторинг
-Loki       — база логов
+```Loki       — база логов
 Promtail   — сбор логов с pod/нод
 Grafana    — дашборды и алерты
 metrics-server — CPU/RAM подов
 Cluster Autoscaler — масштабирует ноды
-HPA — масштабирует поды
+HPA — масштабирует поды```
 
 🧩 Demo-app
 
 Node.js + Express + pg
 Подключение к RDS через secret.
 Обновляется через Helm.
-
+```
 .
 ├── app/                     # Node.js приложение
 ├── demo-app/                # Helm chart
 ├── terraform/               # Инфраструктура
 ├── .github/workflows/       # GitHub Actions (CI/CD)
 └── README.md
-
+```
 🛠 Как запустить проект
-
+```
 # Инициализация Terraform
 terraform init
 terraform apply
@@ -120,17 +122,17 @@ kubectl get nodes
 kubectl get pods -A
 
 # Деплой приложения
-helm upgrade --install demo-app ./demo-app
+helm upgrade --install demo-app ./demo-app```
 
 🧹 Git Cleanliness
-.gitignore включает:
+```.gitignore включает:
   terraform.tfvars
   *.pem
   *secret*
   *.yaml с приватными конфигами
 
 Если утекло в историю:
-  git filter-repo --path ...
+  git filter-repo --path ...```
 
 📄 Лицензия
 
