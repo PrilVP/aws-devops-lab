@@ -111,13 +111,14 @@ Node.js + Express + pg
 ├── demo-app/                # Helm chart
 ├── terraform/               # Инфраструктура
 ├── .github/workflows/       # GitHub Actions (CI/CD)
-└── README.md```
+└── README.md
+```
 
 🛠 Как запустить проект
 
 ```
 # Инициализация Terraform
-```terraform init
+terraform init
 terraform apply```
 
 # Проверка кластера
